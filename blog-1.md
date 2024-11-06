@@ -1,6 +1,6 @@
-## The significance of union and intersection types in Typescript.
+# The significance of union and intersection types in Typescript.
 
-TypeScript's Union and Intersection types are very powerful tools for making sure that our code is type safe.
+### TypeScript's Union and Intersection types are very powerful tools for making sure that our code is type safe.
 
 **_Union_** type gives the opportunity to use more than one type. We have to use "|" sign to separate types. If we try to use a different type of value there will be a compiler error.
 
@@ -11,7 +11,15 @@ type NumberOrString = number | string;
 let something = 123;
 something = "Nothing";
 
-something = [1, 2, 3]; // Compiler error
+something = [1, 2, 3]; // Error
+
+// Literal type Union
+type Role = "admin" | "member" | "guest";
+
+const role1: Role = "admin";
+const role2: Role = "guest";
+
+const rule3: Role = "moderator"; // Error
 ```
 
 In our example, we have used _Union_ type and made a type named "NumberOrString" and it can be either number or string. The variable something can only be a number or string, otherwise it will occur a compier error.
@@ -57,7 +65,7 @@ interface User {
 }
 
 interface Admin {
-  role: "modarator";
+  role: "moderator";
 }
 
 const adminUser: User & Admin = {
@@ -66,3 +74,5 @@ const adminUser: User & Admin = {
   role: "modarator",
 };
 ```
+
+_Lastly, Union and Intersection types make it very easy to combine multiple types together to make programmers life easier._
