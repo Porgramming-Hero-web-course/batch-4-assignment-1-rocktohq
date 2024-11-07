@@ -1,3 +1,10 @@
 const removeDuplicates = (numbers: number[]): number[] => {
-  return [...new Set(numbers)];
+  const unqNumbers: number[] = [];
+  for (const number of numbers) {
+    if (!unqNumbers.includes(number)) {
+      unqNumbers.push(number);
+    }
+  }
+
+  return unqNumbers;
 };
